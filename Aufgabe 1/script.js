@@ -8,7 +8,7 @@ jwplayer("player").setup({
     autostart: false, // خودکار پخش نشه
     mute: true, // اول بی‌صدا باشه
     advertising: {
-        client: "vast", // برای تبلیغات
-        tag: "https://pubads.g.doubleclick.net/gampad/ads?iu=/183/iqd_videoplayer/videoplayer&description_url=" + encodeURIComponent(window.location.href) + "&cust_params=kw%3Dtestplayer&ad_rule=1&npa=0&sz=16x9%7C480x360%7C640x360%7C640x480&gdfp_req=1&output=vast&env=vp&unviewed_position_start=1&impl=s&vid_d=115000&allcues=5000,8000,12000&correlator=" + Date.now()
+        client: "vast",
+        tag: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="
     }
 });
