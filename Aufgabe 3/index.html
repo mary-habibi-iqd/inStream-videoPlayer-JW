@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aufgabe 3</title>
+
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .content {
+        width: 1000px;
+        height: auto;
+        border: 1px solid grey;
+        margin: 0 auto;
+      }
+      .header {
+        display: block;
+        height: 100px;
+        position: fixed;
+        top: 0px;
+        z-index: 2;
+        background: repeating-linear-gradient(
+          45deg,
+          #606dbc,
+          #606dbc 10px,
+          #465298 10px,
+          #465298 20px
+        );
+        width: 100%;
+      }
+      .content {
+        height: 1500px;
+      }
+      .sky {
+        width: 300px;
+        height: 600px;
+        z-index: 1;
+        background-color: rgb(170, 61, 72);
+        position: fixed;
+        border: 3px solid rgb(245, 99, 8);
+      }
+      .footer {
+        background: repeating-linear-gradient(
+          45deg,
+          #606dbc,
+          #606dbc 10px,
+          #465298 10px,
+          #465298 20px
+        );
+        height: 800px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header"></div>
+      <div class="sky"></div>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+
+    <script>
+      const footerEl = document.querySelector(".footer");
+      const headerEl = document.querySelector(".header");
+      const skyEl = document.querySelector(".sky");
+      const adHeight = 600;
+      skyEl.style.boxSizing = "border-box";
+
+      // Add event listener for scrolling the page
+      window.addEventListener("scroll", () => {
+        const viewportHeight = window.innerHeight; // Height of the visible viewport
+
+        const footerDistanceToViewport = footerEl.getBoundingClientRect().y; // Distance of footer element to the viewport
+        const headerOverlap = headerEl.getBoundingClientRect().height; // Height of overlapping header
+
+        const footerOverlap = Math.max(0, viewportHeight - footerDistanceToViewport); // Footer overlap
+        const availableSpace = Math.max(0, viewportHeight - (headerOverlap + footerOverlap)); // Available space for "sky" element
+
+        const actualHeight = Math.min(availableSpace, adHeight); // Actual height of "sky" element
+
+        skyEl.style.height = actualHeight + "px"; // Set height of "sky" element
+        skyEl.style.top = headerOverlap + "px"; // Set position of "sky" element, taking into account the header overlap
+
+        if (actualHeight < 6) {
+          skyEl.style.border = "none"; // Remove border of "sky" element if height is less than 6 pixels
+        } else {
+          skyEl.style.border = "3px solid rgb(245, 99, 8)"; // Set border of "sky" element if height is greater than or equal to 6 pixels
+        }
+
+        // console.log(availableSpace);
+        // console.log(overlap)
+        // console.log(viewportHeight)
+        // console.log(actualHeight);
+        // console.log(footerOverlap);
+      });
+    </script>
+  </body>
+</html>
