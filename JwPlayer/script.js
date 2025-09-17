@@ -3,7 +3,7 @@ jwplayer("player").setup({
         file: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         image: "https://via.placeholder.com/640x360"
     }],
-    width: "100%",
+    width: "640px",
     height: "360px",
     autostart: false,
     advertising: {
