@@ -7,7 +7,7 @@ jwplayer("player").setup({
     height: "360px",
     autostart: false,
     advertising: {
-        client: "vast",
+        client: "googima",
         schedule: [
             {
                 offset: "pre",
