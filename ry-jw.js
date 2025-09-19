@@ -6,7 +6,7 @@
 
         const PRE_ROLL_ID = relevantDigital.defineVideoSlots([
             { path: "/183/iqd_videoplayer/videoplayer" }
-        ]).map((s) => s.getSlotElementId())[0];
+        ]).map((s) => s.getSlotElementId());
         console.log("Pre-Roll Slot ID:", PRE_ROLL_ID);
 
         relevantDigital.loadPrebid({
