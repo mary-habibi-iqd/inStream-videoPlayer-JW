@@ -5,11 +5,9 @@
         relevantDigital.addPrebidConfig({ consentManagement: { cmpApi: 'none' } });
 
         const PRE_ROLL_ID = relevantDigital.defineVideoSlots([
-            {
-
-                path: "/183/iqd_videoplayer/videoplayer"
-            }
+            { path: "/183/iqd_videoplayer/videoplayer" }
         ]).map((s) => s.getSlotElementId())[0];
+        console.log("Pre-Roll Slot ID:", PRE_ROLL_ID);
 
         relevantDigital.loadPrebid({
             configId: '68cc167017459f1b09dec4da',
