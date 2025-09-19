@@ -5,13 +5,15 @@
     relevantDigital.cmd.push(() => {
         relevantDigital.addPrebidConfig({ consentManagement: { cmpApi: 'none' } });
 
-        const PRE_ROLL_ID = relevantDigital.defineVideoSlots([
+        const PRE_ROLL_SLOTS = relevantDigital.defineVideoSlots([
             {
                 path: '/183/iqd_videoplayer/videoplayer',
                 customParams: { pos: 'pre', tile: '169', kw: 'iqadtile169,mary_testplayer' }
             }
-        ]).map(s => s.getSlotElementId());
-        console.log("Pre-Roll Slot ID:", PRE_ROLL_ID);
+        ]);
+
+        const PRE_ROLL_IDS = PRE_ROLL_SLOTS.map(s => s.getSlotElementId());
+        console.log("Pre-Roll Slot ID:", PRE_ROLL_IDS);
 
         relevantDigital.loadPrebid({
             configId: '68cc167017459f1b09dec4da',
@@ -21,9 +23,8 @@
             noSlotReload: false
         });
 
-        relevantDigital.loadVideoUrls(PRE_ROLL_ID, (urls) => {
+        relevantDigital.loadVideoUrls(PRE_ROLL_SLOTS, (urls) => {
             console.log("Pre-Roll Ad Tag URL:", urls[0]);
-
             jwplayer("player").setup({
                 playlist: [{
                     file: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
