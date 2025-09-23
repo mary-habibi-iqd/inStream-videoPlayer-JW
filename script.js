@@ -1,23 +1,4 @@
 
-
-//<script async src="https://iqdigital-cdn.relevant-digital.com/static/tags/68cc020ee43deb896df374d6.js"></script>
-
-(function () {
-    window.relevantDigital = window.relevantDigital || {};
-    relevantDigital.cmd = relevantDigital.cmd || [];
-    relevantDigital.cmd.push(function () {
-        relevantDigital.loadPrebid({
-            configId: '68cc167017459f1b09dec4da',
-            manageAdserver: true,
-            collapseEmptyDivs: true,
-            collapseBeforeAdFetch: false,
-            allowedDivIds: null, // set to an array to only load certain <div>s, example - ["divId1", "divId2"]
-            noSlotReload: false, // set true to only load ad slots that have never been loaded 
-        });
-    });
-})();
-
-
 jwplayer("player").setup({
     playlist: [{
         file: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
