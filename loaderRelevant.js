@@ -12,6 +12,7 @@
             }
         ]);
         console.log("Pre-Roll Slots defined:", PRE_ROLL_SLOTS);
+
         const PRE_ROLL_IDS = PRE_ROLL_SLOTS.map(s => s.getSlotElementId());
         console.log("Pre-Roll Slot IDs:", PRE_ROLL_IDS);
 
@@ -23,7 +24,7 @@
             noSlotReload: false
         });
 
-        relevantDigital.loadVideoUrls(PRE_ROLL_SLOTS, (urls) => {
+        relevantDigital.loadVideoUrls(PRE_ROLL_IDS, (urls) => {
             console.log("Pre-Roll Ad Tag URL received:", urls[0]);
 
             // Check if we have a valid ad URL
