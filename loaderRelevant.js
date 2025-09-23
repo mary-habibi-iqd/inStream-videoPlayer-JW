@@ -28,7 +28,7 @@
 
             // Check if we have a valid ad URL
             if (!urls[0]) {
-                console.warn("⚠️ No pre-roll ad URL received - player will load without ads");
+                console.warn("⚠️ No pre-roll ad URL received");
             }
 
             jwplayer("player").setup({
@@ -42,12 +42,22 @@
                 mute: false,
                 advertising: {
                     client: "googima",
-                    schedule: urls[0] ? [
+                    // schedule: urls[0] ? [
+                    //     {
+                    //         offset: "pre",
+                    //         tag: urls[0]
+                    //     }
+                    // ] : [{
+                    //     offset: "pre",
+                    //     tag: "https://pubads.g.doubleclick.net/gampad/ads?sz=16x9%7C480x360%7C640x360%7C640x480&iu=/183/iqd_videoplayer/videoplayer&cust_params=pos%3Dpre%26tile%3D169%26kw%3Diqadtile169%2Cmary_testplayer&pmnd=0&pmxd=32000&pmad=2&pod=2&vpos=preroll&plcmt=1&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=__referrer__&description_url=__page-url__&correlator=" + Date.now()
+                    // }] // Only add advertising if URL exists
+
+                    schedule: [
                         {
                             offset: "pre",
                             tag: urls[0]
                         }
-                    ] : [] // Only add advertising if URL exists
+                    ]
                 }
             });
 
