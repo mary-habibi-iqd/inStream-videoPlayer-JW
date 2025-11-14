@@ -32,7 +32,7 @@
                 console.warn("⚠️ No pre-roll ad URL received");
             }
             const directGamTag = `https://pubads.g.doubleclick.net/gampad/ads?` +
-                `sz=640x360` +
+                `sz=640x360|480x360|640x480|400x300|300x250` +
                 `&iu=/183/iqd_videoplayer/videoplayer` +
                 `&impl=s` +
                 `&gdfp_req=1` +
@@ -43,6 +43,7 @@
                 `&url=${encodeURIComponent(window.location.href)}` +
                 `&description_url=${encodeURIComponent(window.location.href)}` +
                 `&correlator=${Date.now()}`;
+            console.log("Direct GAM Tag:", directGamTag);
 
             jwplayer("player").setup({
                 playlist: [{
