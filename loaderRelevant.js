@@ -31,11 +31,23 @@
             if (!urls[0]) {
                 console.warn("⚠️ No pre-roll ad URL received");
             }
+            const directGamTag = `https://pubads.g.doubleclick.net/gampad/ads?` +
+                `sz=640x360` +
+                `&iu=/183/iqd_videoplayer/videoplayer` +
+                `&impl=s` +
+                `&gdfp_req=1` +
+                `&env=vp` +
+                `&output=vast` +
+                `&unviewed_position_start=1` +
+                `&cust_params=pos%3Dpre%26tile%3D169%26kw%3Diqadtile169%2Cmary_testplayer` +
+                `&url=${encodeURIComponent(window.location.href)}` +
+                `&description_url=${encodeURIComponent(window.location.href)}` +
+                `&correlator=${Date.now()}`;
 
             jwplayer("player").setup({
                 playlist: [{
                     file: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                    image: "https://via.placeholder.com/640x360"
+                    image: "https://loremflickr.com/640/360"
                 }],
                 width: "640px",
                 height: "360px",
@@ -43,16 +55,6 @@
                 mute: false,
                 advertising: {
                     client: "googima",
-                    // schedule: urls[0] ? [
-                    //     {
-                    //         offset: "pre",
-                    //         tag: urls[0]
-                    //     }
-                    // ] : [{
-                    //     offset: "pre",
-                    //     tag: "https://pubads.g.doubleclick.net/gampad/ads?sz=16x9%7C480x360%7C640x360%7C640x480&iu=/183/iqd_videoplayer/videoplayer&cust_params=pos%3Dpre%26tile%3D169%26kw%3Diqadtile169%2Cmary_testplayer&pmnd=0&pmxd=32000&pmad=2&pod=2&vpos=preroll&plcmt=1&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=__referrer__&description_url=__page-url__&correlator=" + Date.now()
-                    // }] // Only add advertising if URL exists
-
                     schedule: [
                         {
                             offset: "pre",
