@@ -5,16 +5,16 @@
     relevantDigital.cmd.push(() => {
         relevantDigital.addPrebidConfig({ consentManagement: { cmpApi: 'none' } });
 
-        const PRE_ROLL_SLOTS = relevantDigital.defineVideoSlots([
+        const VIDEO_SLOTS = relevantDigital.defineVideoSlots([
             {
                 path: '/183/iqd_videoplayer/videoplayer',
                 customParams: { pos: 'pre', tile: '169', kw: 'iqadtile169,mary_testplayer' }
             }
         ]);
-        console.log("Pre-Roll Slots defined:", PRE_ROLL_SLOTS);
+        console.log("VIDEO_SLOTS defined:", VIDEO_SLOTS);
 
-        const PRE_ROLL_IDS = PRE_ROLL_SLOTS.map(s => s.getSlotElementId());
-        console.log("Pre-Roll Slot IDs:", PRE_ROLL_IDS);
+        const SLOT_IDS = VIDEO_SLOTS.map(s => s.getSlotElementId());
+        console.log("SLOT_IDS defined:", SLOT_IDS);
 
         relevantDigital.loadPrebid({
             configId: '68cc167017459f1b09dec4da',
@@ -24,8 +24,8 @@
             noSlotReload: false
         });
 
-        relevantDigital.loadVideoUrls(PRE_ROLL_IDS, (urls) => {
-            console.log("Pre-Roll Ad Tag URL received:", urls[0]);
+        relevantDigital.loadVideoUrls(SLOT_IDS, (urls) => {
+            console.log("RY Ad Tag URL received:", urls[0]);
 
             // Check if we have a valid ad URL
             if (!urls[0]) {
@@ -43,7 +43,7 @@
                 `&url=${encodeURIComponent(window.location.href)}` +
                 `&description_url=${encodeURIComponent(window.location.href)}` +
                 `&correlator=${Date.now()}`;
-            console.log("Direct GAM Tag:", directGamTag);
+            console.log("GAM Ad Tag URL:", directGamTag);
 
             jwplayer("player").setup({
                 playlist: [{
