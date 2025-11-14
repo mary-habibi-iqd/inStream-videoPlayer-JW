@@ -29,7 +29,7 @@
 
             // Check if we have a valid ad URL
             if (!urls[0]) {
-                console.warn("⚠️ No pre-roll ad URL received");
+                console.warn("No pre-roll ad URL received");
             }
             const directGamTag = `https://pubads.g.doubleclick.net/gampad/ads?` +
                 `sz=640x360|480x360|640x480|400x300|300x250` +
@@ -66,7 +66,7 @@
             });
 
             jwplayer("player").on('adError', (event) => {
-                console.log('Ad Error:', event.message, event.code);
+                console.log(event.message, event.code);
             });
         });
     });
