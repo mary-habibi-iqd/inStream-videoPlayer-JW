@@ -20,7 +20,7 @@
                  */
 
                 // 2. Define the video slot with its unique path and custom parameters
-                const PRE_ROLL_SLOTS = relevantDigital.defineVideoSlots([
+                const VIDEO_SLOTS = relevantDigital.defineVideoSlots([
                     {
                         path: "/183/iqd_videoplayer/videoplayer", // Unique GAM path
                         customParams: {
@@ -31,18 +31,18 @@
                         },
                     },
                 ]);
-                console.log("Pre-Roll Slots defined:", PRE_ROLL_SLOTS);
+                console.log("Video Slots defined:", VIDEO_SLOTS);
 
-                const PRE_ROLL_IDS = PRE_ROLL_SLOTS.map((s) => s.getSlotElementId());
-                console.log("Pre-Roll Slot IDs:", PRE_ROLL_IDS);
+                const SLOT_IDS = VIDEO_SLOTS.map((s) => s.getSlotElementId());
+                console.log("Video Slot IDs:", SLOT_IDS);
 
                 // 3. Load the video ad tag URL
-                relevantDigital.loadVideoUrls(PRE_ROLL_IDS, (urls) => {
+                relevantDigital.loadVideoUrls(SLOT_IDS, (urls) => {
                     const adTagUrl = urls[0];
-                    console.log("Pre-Roll Ad Tag URL received:", adTagUrl);
+                    console.log("Video Ad Tag URL received:", adTagUrl);
 
                     if (!adTagUrl) {
-                        console.warn("⚠️ No pre-roll ad URL received. Using fallback.");
+                        console.warn("⚠️ No Video ad URL received. Using fallback.");
                     }
 
                     // 4. Setup JW Player using the dynamic ad tag URL
