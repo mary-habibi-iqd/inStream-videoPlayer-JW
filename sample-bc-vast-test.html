@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Play a Preroll</title>
+    <!-- Page styles -->
+    <style translate="no">
+        .video-js {
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+    <link href="https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css" rel="stylesheet">
+</head>
+
+<body>
+    <video-js id="myPlayerID" data-video-id="5622718636001" data-account="1507807800001" data-player="default"
+        data-embed="default" class="video-js" controls></video-js>
+    <script src="//players.brightcove.net/1507807800001/default_default/index.min.js"></script>
+    <script src="https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js"></script>
+    <script translate="no">
+        var myPlayer = videojs.getPlayer("myPlayerID");
+        myPlayer.ready(function () {
+            myPlayer.ima3({
+                debug: true,
+                requestMode: "onload",
+
+                serverUrl: "https://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vast.xml"
+            })
+        });
+    </script>
+</body>
+
+</html>
