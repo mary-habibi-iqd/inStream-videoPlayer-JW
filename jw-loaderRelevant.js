@@ -5,7 +5,11 @@
     relevantDigital.cmd.push(() => {
 
         relevantDigital.addPrebidConfig({
-            consentManagement: { cmpApi: 'none' }
+            consentManagement: {
+                cmpApi: 'static',
+                timeout: 0,
+                allowAuctionWithoutConsent: true
+            }
         });
 
         const VIDEO_SLOTS = relevantDigital.defineVideoSlots([{
@@ -22,11 +26,13 @@
         });
 
         relevantDigital.loadVideoUrls(SLOT_IDS, (urls) => {
-            const rawTag = urls?.[0]?.trim() || '';
-            console.log("%c Raw tag from Relevant Digital:", "color: #ff9800; font-weight: bold", rawTag || "(empty)");
+            //const tempTag = urls?.[0]?.trim() || '';
+            const tempTag = urls[0];
 
-            let finalTag = rawTag;
-            const isNoBid = rawTag.includes('hb_uuid%3Dundefined') && rawTag.includes('hb_cache_id%3Dundefined');
+            console.log("%c Raw tag from Relevant Digital:", "color: #ff9800; font-weight: bold", tempTag || "(empty)");
+
+            // let finalTag = tempTag;
+            // const isNoBid = tempTag.includes('hb_uuid%3Dundefined') && tempTag.includes('hb_cache_id%3Dundefined');
 
             // if (!rawTag || isNoBid) {
             //     console.log("%cNo Prebid bid detected → Using direct GAM fallback", "color: #f44336; font-weight: bold");
@@ -50,7 +56,7 @@
                     client: "googima",
                     vpaidMode: "enabled",
                     schedule: {
-                        pre: { offset: "pre", tag: finalTag }
+                        pre: { offset: "pre", tag: tempTag }
                     }
                 }
             });
