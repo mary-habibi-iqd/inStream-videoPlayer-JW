@@ -5,7 +5,11 @@
     relevantDigital.cmd.push(() => {
 
         relevantDigital.addPrebidConfig({
-            consentManagement: { cmpApi: 'none' }
+            consentManagement: {
+                cmpApi: 'static',
+                timeout: 0,
+                allowAuctionWithoutConsent: true
+            }
         });
 
         const VIDEO_SLOTS = relevantDigital.defineVideoSlots([{
