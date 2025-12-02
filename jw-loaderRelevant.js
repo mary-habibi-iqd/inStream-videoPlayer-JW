@@ -6,12 +6,12 @@
 
         relevantDigital.addPrebidConfig({
             consentManagement: {
-                cmpApi: 'static',
-                timeout: 0,
-                allowAuctionWithoutConsent: true,
+                cmpApi: 'iab',  // ← Ändere auf 'iab' statt 'static'
+                timeout: 5000,   // ← Gib CMP mehr Zeit
+                allowAuctionWithoutConsent: false  // ← Warte auf Consent
             },
-            consentManagementOverride: true,
-            debug: true
+            debug: true,
+            bidderTimeout: 3000  // ← Timeout für Bidder
         });
 
         const VIDEO_SLOTS = relevantDigital.defineVideoSlots([{
