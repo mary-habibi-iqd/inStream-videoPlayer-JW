@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+    <!-- CMP stub -->
+    <script>
+        window._iub = window._iub || {};
+        _iub.csConfiguration = {
+            cookiePolicyId: 417383,
+            siteId: 1,
+            logLevel: 'error',
+            lang: 'en',
+            enableTcf: true,
+        };
+    </script>
+    <script src="//cdn.iubenda.com/cs/tcf/beta/stub.js"></script>
+    <script async src="//cdn.iubenda.com/cs/beta/iubenda_cs.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,46 +24,6 @@
     <script async src="https://iqdigital-cdn.relevant-digital.com/static/tags/68cc020ee43deb896df374d6.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script type="text/javascript" src="cmp_init.js" onload="console.log('✅ CMP script loaded')"
-        onerror="console.error('❌ CMP script failed to load')"></script>
-    <script>
-        window._sp_queue = [];
-        window._sp_ = {
-            config: {
-                accountId: 692,
-                baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                gdpr: {},
-                events: {
-                    onMessageReady: function () {
-                        console.log('[event] onMessageReady', arguments);
-                    },
-                    onMessageReceiveData: function () {
-                        console.log('[event] onMessageReceiveData', arguments);
-                    },
-                    onSPReady: function () {
-                        console.log('[event] onSPReady', arguments);
-                    },
-                    onError: function () {
-                        console.log('[event] onError', arguments);
-                    },
-                    onMessageChoiceSelect: function () {
-                        console.log('[event] onMessageChoiceSelect', arguments);
-                    },
-                    onConsentReady: function (consentUUID, euconsent) {
-                        console.log('[event] onConsentReady', arguments);
-                    },
-                    onPrivacyManagerAction: function () {
-                        console.log('[event] onPrivacyManagerAction', arguments);
-                    },
-                    onPMCancel: function () {
-                        console.log('[event] onPMCancel', arguments);
-                    }
-                }
-            }
-        }
-    </script>
-    <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
 
 </head>
 <link rel="stylesheet" href="styles.css" />

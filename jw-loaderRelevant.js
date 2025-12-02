@@ -6,12 +6,12 @@
 
         relevantDigital.addPrebidConfig({
             consentManagement: {
-                cmpApi: 'iab',  // ← Ändere auf 'iab' statt 'static'
-                timeout: 5000,   // ← Gib CMP mehr Zeit
-                allowAuctionWithoutConsent: false  // ← Warte auf Consent
+                cmpApi: 'iab',
+                timeout: 5000,
+                allowAuctionWithoutConsent: false
             },
             debug: true,
-            bidderTimeout: 3000  // ← Timeout für Bidder
+            bidderTimeout: 3000
         });
 
         const VIDEO_SLOTS = relevantDigital.defineVideoSlots([{
@@ -35,10 +35,10 @@
             const isNoBid = rawTag.includes('hb_uuid%3Dundefined') && rawTag.includes('hb_cache_id%3Dundefined');
 
             // if (!rawTag || isNoBid) {
-            //     console.log("%cNo Prebid bid detected → Using direct GAM fallback", "color: #f44336; font-weight: bold");
-            //     finalTag = `https://pubads.g.doubleclick.net/gampad/ads?iu=/183/iqd_videoplayer/videoplayer&sz=640x360|640x480&gdfp_req=1&output=vast&env=vp&impl=s&unviewed_position_start=1&cust_params=pos%3Dpre%26tile%3D169%26kw%3Diqadtile169%2Cmary_testplayer&url=${encodeURIComponent(location.href)}&description_url=${encodeURIComponent(location.href)}&correlator=${Date.now()}`;
+            // console.log("%cNo Prebid bid detected → Using direct GAM fallback", "color: #f44336; font-weight:bold");
+            // finalTag = `https://pubads.g.doubleclick.net/gampad/ads?iu=/183/iqd_videoplayer/videoplayer&sz=640x360|640x480&gdfp_req=1&output=vast&env=vp&impl=s&unviewed_position_start=1&cust_params=pos%3Dpre%26tile%3D169%26kw%3Diqadtile169%2Cmary_testplayer&url=${encodeURIComponent(location.href)}&description_url=${encodeURIComponent(location.href)}&correlator=${Date.now()}`;
             // } else {
-            //     console.log("%cReal Prebid bid won → Using header bidding winner", "color: #4caf50; font-weight: bold");
+            // console.log("%cReal Prebid bid won → Using header bidding winner", "color: #4caf50; font-weight:bold");
             // }
 
             console.log("%cFinal VAST tag sent to JWPlayer:", "color: #00e676; font-weight: bold", finalTag);
@@ -50,6 +50,7 @@
                 }],
                 width: "640px",
                 height: "360px",
+                autostart: "viewable",
                 mute: false,
                 advertising: {
                     client: "googima",
