@@ -8,8 +8,10 @@
             consentManagement: {
                 cmpApi: 'static',
                 timeout: 0,
-                allowAuctionWithoutConsent: true
-            }
+                allowAuctionWithoutConsent: true,
+            },
+            consentManagementOverride: true,
+            debug: true
         });
 
         const VIDEO_SLOTS = relevantDigital.defineVideoSlots([{
@@ -48,7 +50,6 @@
                 }],
                 width: "640px",
                 height: "360px",
-                autostart: "viewable",
                 mute: false,
                 advertising: {
                     client: "googima",
